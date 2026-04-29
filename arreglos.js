@@ -110,10 +110,10 @@ function moverTodoIzquierda(){
     pintarArregloIzquierda();
 }
 
-function sumarEdadesIzquierda(){
-    let suma;
-    for (let i=0; i< arregloIzquierda;i++){
-        suma=
-    }
-}
+//function sumarEdadesIzquierda(){
+  //  let suma;
+    //for (let i=0; i< arregloIzquierda;i++){
+      //  suma=
+    //}
+//}
  
