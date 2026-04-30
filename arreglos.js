@@ -24,31 +24,47 @@ function agregarEdad() {
 // 3. Función pintarArregloIzquierda
 function pintarArregloIzquierda() {
     let tabla = document.getElementById("tablaIzquierda");
-    tabla.innerHTML = "";
+    let html= "";
  
     for (let i = 0; i < arregloIzquierda.length; i++) {
-        tabla.innerHTML += `
+        html+= `
             <tr>
                 <td>${arregloIzquierda[i]}</td>
                 <td><button class="btn-eliminar" onclick="eliminarIzquierdo(${i})">Eliminar</button></td>
                 <td><button class="btn-mover" onclick="moverHaciaDerecha(${i})">➜</button></td>
             </tr>`;
     }
+        let suma=sumarEdadesIzquierda();
+                html+="<tr>";
+                html+="<td>"+suma+"</td>";
+                html+="<td>"+"Total Suma"+"</td>";
+                html+="<td>"+""+"</td>";
+                html+="</tr>";
+    tabla.innerHTML=html;
 }
+
  
 // 5. Función pintarArregloDerecha
 function pintarArregloDerecha() {
     let tabla = document.getElementById("tablaDerecha");
+    let html="";
     tabla.innerHTML = "";
  
     for (let i = 0; i < arregloDerecha.length; i++) {
-        tabla.innerHTML += `
+        html+= `
             <tr>
                 <td><button class="btn-mover" onclick="moverHaciaIzquierda(${i})">⬅</button></td>
                 <td>${arregloDerecha[i]}</td>
                 <td><button class="btn-eliminar" onclick="eliminarDerecho(${i})">Eliminar</button></td>
             </tr>`;
     }
+            let suma=sumarEdadesDerecha();
+                html+="<tr>";
+                html+="<td>"+suma+"</td>";
+                html+="<td>"+"Total Suma"+"</td>";
+                html+="<td>"+""+"</td>";
+                html+="</tr>";
+    tabla.innerHTML=html;
 }
  
 function eliminarIzquierdo(indice) {
@@ -110,10 +126,18 @@ function moverTodoIzquierda(){
     pintarArregloIzquierda();
 }
 
-//function sumarEdadesIzquierda(){
-  //  let suma;
-    //for (let i=0; i< arregloIzquierda;i++){
-      //  suma=
-    //}
-//}
- 
+function sumarEdadesIzquierda(){
+    let suma=0;
+    for (let i=0; i< arregloIzquierda.length;i++){
+      suma+=arregloIzquierda[i]
+    }
+    return suma;
+}
+
+function sumarEdadesDerecha(){
+    let suma=0;
+    for (let i=0; i< arregloDerecha.length;i++){
+      suma+=arregloDerecha[i]
+    }
+    return suma;
+}
